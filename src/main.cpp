@@ -11,7 +11,7 @@ class $modify(EditorUIHook, EditorUI) {
 		CCSprite* m_filterIndicatorObj;
 	};
 
-	void updateFilterIndicator(float bruh) {
+	void updateFilterIndicator() {
 
 		CCSprite* filterIndicatorIcon = m_fields->m_filterIndicatorIcon;
 		CCSprite* filterIndicatorObj = m_fields->m_filterIndicatorObj;
@@ -60,8 +60,16 @@ class $modify(EditorUIHook, EditorUI) {
 		m_fields->m_filterIndicatorIcon = filterIndicatorIcon;
 		m_fields->m_filterIndicatorObj = filterIndicatorObj;
 
-		this->schedule(schedule_selector(EditorUIHook::updateFilterIndicator), 0.05f);
+		updateFilterIndicator();
+
+		deleteButton->updateDisplayedOpacity(deleteButton->getOpacity());
 
 		return true;
 	}
+
+	void onUpdateDeleteFilter(cocos2d::CCObject* sender) {
+		EditorUI::onUpdateDeleteFilter(sender);
+		updateFilterIndicator();
+	}
+	
 };
