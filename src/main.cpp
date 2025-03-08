@@ -61,5 +61,7 @@ class $modify(EditorUIHook, EditorUI) {
 		m_fields->m_filterIndicatorObj = filterIndicatorObj;
 
 		this->schedule(schedule_selector(EditorUIHook::updateFilterIndicator), 0.05f);
+
+		return true;
 	}
 };
