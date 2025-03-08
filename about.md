@@ -11,5 +11,4 @@ This means you can make the game ONLY select ONE specific object type, which is 
 
 # Mod Features
 - Adds an indicator for when you have a custom object select filter enabled in the delete tab.
-- Doesn't indicate the other types of filters aside from ones for specific individual objects, but that may be added in a future update.
-
+- Indicate the other types of filters aside from ones for specific individual objects. ***(Note: these can only be used to DELETE objects, not select.)***

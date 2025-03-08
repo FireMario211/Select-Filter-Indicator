@@ -17,24 +17,38 @@ class $modify(EditorUIHook, EditorUI) {
 		CCSprite* filterIndicatorObj = m_fields->m_filterIndicatorObj;
 
 		int filterType = GameManager::get()->getIntGameVariable("0005");
-		if (filterType != 3) {
-			filterIndicatorIcon->setVisible(false);
-			filterIndicatorObj->setVisible(false);
-			return;
-		}
 
-		int objectID = GameManager::get()->getIntGameVariable("0006");
-		if (filterIndicatorIcon && objectID >= 0) {
+		switch (filterType) {
+			case 1:
+				filterIndicatorIcon->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("deleteFilter_details_001.png"));
+				filterIndicatorIcon->setVisible(true);
+				filterIndicatorObj->setVisible(false);
+				break;
 
-			const char* fileName = ObjectToolbox::sharedState()->intKeyToFrame(objectID);
-			filterIndicatorObj->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(fileName));
+			case 2:
+				filterIndicatorIcon->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("deleteFilter_static_001.png"));
+				filterIndicatorIcon->setVisible(true);
+				filterIndicatorObj->setVisible(false);
+				break;
 
-			filterIndicatorIcon->setVisible(true);
-			filterIndicatorObj->setVisible(true);
+			case 3:
+			{
+				int objectID = GameManager::get()->getIntGameVariable("0006");
+				if (filterIndicatorIcon && objectID >= 0) {
+					const char* fileName = ObjectToolbox::sharedState()->intKeyToFrame(objectID);
+					filterIndicatorIcon->setVisible(true);
+					filterIndicatorObj->setVisible(true);
 
-			// CCSize contentSize = filterIndicatorObj->getContentSize();
-			// filterIndicatorObj->setScale(10 / contentSize.height);
-			
+					filterIndicatorObj->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(fileName));
+					filterIndicatorIcon->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("deleteFilter_custom_001.png"));
+				}
+				break;
+			}
+
+			default:
+				filterIndicatorIcon->setVisible(false);
+				filterIndicatorObj->setVisible(false);
+				break;
 		}
 	}
 
