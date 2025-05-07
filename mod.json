@@ -8,7 +8,7 @@
 	},
 	"id": "rgc_exists.select_filter_indicator",
 	"name": "Select Filter Indicator",
-	"version": "v1.0.4",
+	"version": "v1.0.3",
 	"developer": "RGC Exists",
 	"description": "Adds an indicator for when you have an object select filter enabled in the delete tab."
 }

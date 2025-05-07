@@ -1,6 +1,3 @@
-# 1.0.4
-* Fix a missing dependency.
-
 # 1.0.3
 - Update mod.json to support MacOS lol  
 - Really wish Geode let me do smaller version increments than 1.0.X lol
