@@ -57,9 +57,8 @@ class $modify(EditorUIHook, EditorUI) {
 			return false;
 		}
 
-		CCSprite* deleteButton = (CCSprite*)getChildByIDRecursive("delete-trash-button");
 		CCSprite* filterIndicatorIcon = CCSprite::createWithSpriteFrameName("deleteFilter_custom_001.png");
-		deleteButton->addChild(filterIndicatorIcon);
+		m_trashBtn->addChild(filterIndicatorIcon);
 		filterIndicatorIcon->setPosition(CCPoint(30, 10));
 
 		CCSprite* filterIndicatorObj = CCSprite::create();
@@ -76,7 +75,7 @@ class $modify(EditorUIHook, EditorUI) {
 
 		updateFilterIndicator();
 
-		deleteButton->updateDisplayedOpacity(deleteButton->getOpacity());
+		m_trashBtn->updateDisplayedOpacity(m_trashBtn->getOpacity());
 
 		return true;
 	}
